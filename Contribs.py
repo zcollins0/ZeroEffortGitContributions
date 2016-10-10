@@ -7,8 +7,9 @@ from datetime import datetime, timedelta
 def main():
     maxCommits = 12 
     outFile.truncate()
-
+    write('#!/bin/bash')
     write('REPO=DummyRepo')
+    write('USER=zcollins0')
     write('git init $REPO')
     write('cd $REPO')
     write('touch README.md')
@@ -20,8 +21,9 @@ def main():
             write(commit_template(date))
         date += timedelta(days=1)
 
+    write('git remote add origin git@github.com:$USER/$REPO.git')
     write('git pull')
-    write('git push')
+    write('git push -u origin master')
     outFile.close()
 
 def write(s):
