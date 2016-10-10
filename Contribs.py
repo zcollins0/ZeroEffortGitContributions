@@ -1,0 +1,49 @@
+# This file will write a shell script to fill your github history.
+# Todo: get maximum commits in a day
+
+from random import randint
+from datetime import datetime, timedelta
+
+def main():
+    maxCommits = 12 
+    outFile.truncate()
+
+    write('REPO=DummyRepo')
+    write('git init $REPO')
+    write('cd $REPO')
+    write('touch README.md')
+    write('git add README.md')
+    date = get_init_date()
+    while (date.date() != datetime.today().date()):
+        dailyWork = randint(0, maxCommits)
+        for num in range(0, dailyWork):
+            write(commit_template(date))
+        date += timedelta(days=1)
+
+    write('git pull')
+    write('git push')
+    outFile.close()
+
+def write(s):
+    outFile.write(s + '\n')
+
+def get_init_date():
+    today = datetime.today()
+    date = datetime(today.year - 1, today.month, today.day, 12)
+    weekday = datetime.weekday(date)
+
+    while weekday < 6:
+        date = date + timedelta(1)
+        weekday = datetime.weekday(date)
+
+    return date
+
+def commit_template(date):
+    template = (
+        '''GIT_AUTHOR_DATE={0} GIT_COMMITTER_DATE={1} '''
+        '''git commit --allow-empty -m "faking it since day 1" > /dev/null\n'''
+    )
+    return template.format(date.isoformat(), date.isoformat())
+
+outFile = open('fillit.sh', 'w')
+main()
