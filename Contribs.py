@@ -1,4 +1,5 @@
 # This file will write a shell script to fill your github history.
+# TODO: get user input
 
 from random import randint
 from datetime import datetime, timedelta
