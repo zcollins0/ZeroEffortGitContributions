@@ -35,7 +35,7 @@ def get_init_date():
     weekday = datetime.weekday(date)
 
     while weekday < 6:
-        date = date + timedelta(1)
+        date = date + timedelta(-1)
         weekday = datetime.weekday(date)
 
     return date
