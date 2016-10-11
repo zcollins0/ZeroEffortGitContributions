@@ -1,5 +1,4 @@
 # This file will write a shell script to fill your github history.
-# Todo: get maximum commits in a day
 
 from random import randint
 from datetime import datetime, timedelta
