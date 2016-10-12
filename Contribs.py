@@ -20,7 +20,7 @@ def main():
     write('git add README.md')
     date = get_init_date()
     while (date.date() != datetime.today().date()):
-        dailyWork = randint(0, maxCommits)
+        dailyWork = randint(0, int(maxCommits))
         for num in range(0, dailyWork):
             write(commit_template(date))
         date += timedelta(days=1)
