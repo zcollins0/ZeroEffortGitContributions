@@ -1,15 +1,19 @@
 # This file will write a shell script to fill your github history.
-# TODO: get user input
 
 from random import randint
 from datetime import datetime, timedelta
 
 def main():
-    maxCommits = 12 
+    print('Maximum number of daily commits:\n>')
+    maxCommits = input()
+    print('Github username:\n>')
+    user = input()
+    print('Repository:\n>')
+    repo = input()
     outFile.truncate()
     write('#!/bin/bash')
-    write('REPO=DummyRepo')
-    write('USER=zcollins0')
+    write('REPO='+repo)
+    write('USER='+user)
     write('git init $REPO')
     write('cd $REPO')
     write('touch README.md')
