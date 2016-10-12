@@ -4,12 +4,12 @@ from random import randint
 from datetime import datetime, timedelta
 
 def main():
-    print('Maximum number of daily commits:\n>')
-    maxCommits = input()
-    print('Github username:\n>')
-    user = input()
-    print('Repository:\n>')
-    repo = input()
+    print('Maximum number of daily commits:')
+    maxCommits = input('> ')
+    print('Github username:')
+    user = input('> ')
+    print('Repository:')
+    repo = input('> ')
     outFile.truncate()
     write('#!/bin/bash')
     write('REPO='+repo)
