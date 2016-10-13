@@ -31,10 +31,12 @@ def main():
     write('git pull')
     write('git push -u origin master')
     outFile.close()
-    #output file
+
+# function to write string plus newline to file
 def write(s):
     outFile.write(s + '\n')
-    #get oldest date seen on github history
+
+#get oldest date seen on github history
 def get_init_date():
     today = datetime.today()
     date = datetime(today.year - 1, today.month, today.day, 12)
