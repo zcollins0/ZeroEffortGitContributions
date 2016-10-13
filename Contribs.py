@@ -4,14 +4,14 @@ from random import randint
 from datetime import datetime, timedelta
 
 def main():
-#get relevant user input
+    #get relevant user input
     print('Maximum number of daily commits:')
     maxCommits = input('> ')
     print('Github username:')
     user = input('> ')
     print('Repository:')
     repo = input('> ')
-#writing shell commands
+    #writing shell commands
     outFile.truncate()
     write('#!/bin/bash')
     write('REPO='+repo)
@@ -31,10 +31,10 @@ def main():
     write('git pull')
     write('git push -u origin master')
     outFile.close()
-#output file
+    #output file
 def write(s):
     outFile.write(s + '\n')
-#get today's date
+    #get oldest date seen on github history
 def get_init_date():
     today = datetime.today()
     date = datetime(today.year - 1, today.month, today.day, 12)
