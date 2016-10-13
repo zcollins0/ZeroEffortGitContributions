@@ -11,6 +11,7 @@ def main():
     user = input('> ')
     print('Repository:')
     repo = input('> ')
+    
     #writing shell commands
     outFile.truncate()
     write('#!/bin/bash')
@@ -21,6 +22,8 @@ def main():
     write('touch README.md')
     write('git add README.md')
     date = get_init_date()
+
+    #write commits
     while (date.date() != datetime.today().date()):
         dailyWork = randint(0, int(maxCommits))
         for num in range(0, dailyWork):
