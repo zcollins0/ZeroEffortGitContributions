@@ -16,12 +16,17 @@ def main():
     # writing shell commands
     outFile.truncate()
     write('#!/bin/bash')
+    # set environment variables
     write('REPO='+repo)
     write('USER='+user)
+    # create repo and move into it
     write('git init $REPO')
     write('cd $REPO')
+    # add a readme
     write('touch README.md')
     write('git add README.md')
+    
+    # get earliest date seen in github history
     date = get_init_date()
 
     # write commits
