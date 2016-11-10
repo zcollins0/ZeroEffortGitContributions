@@ -66,7 +66,7 @@ def get_init_date():
 def commit_template(date):
     template = (
         '''GIT_AUTHOR_DATE={0} GIT_COMMITTER_DATE={1} '''
-        '''git commit --allow-empty -m "faking it since day 1" > /dev/null\n'''
+        '''git commit --allow-empty -m "faking it since day 1" > /dev/null'''
     )
     return template.format(date.isoformat(), date.isoformat())
 
